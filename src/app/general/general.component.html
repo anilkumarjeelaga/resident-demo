@@ -1,0 +1,186 @@
+<div class="container mb-5 mt-5">
+    <h4>General Information</h4>
+    <form (ngSubmit)="onSubmit(heroForm)" #heroForm="ngForm">
+        <div class="form-group">
+            <div class="row mb-3">
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <label for="name">First name<span>*</span></label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="heroObj.firstname" name="name" #name="ngModel" required minlength="4" maxlength="10">
+            
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors.required">
+                        first name is required.
+                        </div>
+                        <div *ngIf="name.errors.minlength">
+                        Name must be at least 4 characters long.
+                        </div>
+                        <div *ngIf="name.errors.maxlength">
+                        Name should not be more than 10 characters.
+                        </div>
+                    </div>
+                </div><!-- /. col-md-4 -->
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <label for="lastname">Last name<span>*</span></label>
+                    <input type="text" class="form-control" id="lastname" [(ngModel)]="heroObj.lastname" name="lastname" #lastname="ngModel" required minlength="4" maxlength="10">
+            
+                    <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+                        <div *ngIf="lastname.errors.required">
+                        last name is required.
+                        </div>
+                        <div *ngIf="lastname.errors.minlength">
+                        Name must be at least 4 characters long.
+                        </div>
+                        <div *ngIf="lastname.errors.maxlength">
+                        Name should not be more than 10 characters.
+                        </div>
+                    </div>
+                </div><!-- /. col-md-4 -->
+
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <label for="nickname">Nick name<span>*</span></label>
+                    <input type="text" class="form-control" id="nickname" [(ngModel)]="heroObj.nickname" name="nickname" #nickname="ngModel" required minlength="4" maxlength="10">
+            
+                    <div *ngIf="nickname.invalid && (nickname.dirty || nickname.touched)" class="alert alert-danger">
+                        <div *ngIf="nickname.errors.required">
+                        nick name is required.
+                        </div>
+                        <div *ngIf="nickname.errors.minlength">
+                        Name must be at least 4 characters long.
+                        </div>
+                        <div *ngIf="nickname.errors.maxlength">
+                        Name should not be more than 10 characters.
+                        </div>
+                    </div>
+                </div><!-- /. col-md-4 -->
+            </div><!-- row -->
+
+            <div class="row">
+                
+
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <label for="phone">Personal Number<span>*</span></label>
+                    <input type="text" class="form-control" id="phone" [(ngModel)]="heroObj.phone" name="phone" #phone="ngModel" required maxlength="10">
+            
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors.required">
+                        Please provide a valid phone number
+                        </div>
+                        <!-- <div *ngIf="phone.errors.minlength">
+                        number must be at least 4 characters long.
+                        </div>
+                        <div *ngIf="phone.errors.maxlength">
+                        Number should not be more than 10 characters.
+                        </div> -->
+                    </div>
+                </div><!-- /. col-md-4 -->
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <label for="height">Height(cm)<span>*</span></label>
+                    <input type="text" class="form-control" id="height" [(ngModel)]="heroObj.height" name="height" #height="ngModel" required>
+            
+                    <div *ngIf="height.invalid && (height.dirty || height.touched)" class="alert alert-danger">
+                        <div *ngIf="height.errors.required">
+                        please provide  height in cms
+                        </div>
+                    </div>
+                </div><!-- /. col-md-4 -->
+
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                    <label for="weight">Weight(kgs)<span>*</span></label>
+                    <input type="text" class="form-control" id="weight" [(ngModel)]="heroObj.weight" name="weight" #weight="ngModel" required >
+            
+                    <div *ngIf="weight.invalid && (weight.dirty || weight.touched)" class="alert alert-danger">
+                        <div *ngIf="weight.errors.required">
+                        please provide weight in kgs
+                        </div>
+                    </div>
+                </div><!-- /. col-md-4 -->
+
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="form-group">
+                    <label>Resident status<span>*</span></label>
+                    <div class="form-check">
+                      <input type="radio" class="form-check-input" [(ngModel)]="heroObj.available" value="yes" name="available" required>
+                      <label class="form-check-label">Active</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" class="form-check-input" [(ngModel)]="heroObj.available" value="no" name="available" required>
+                      <label class="form-check-label">Inactive</label>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <h4>Ward Information</h4>
+        <div class="row">
+            <div class="col-md-2 col-lg-2 col-xl-2">
+                <div class="form-group">
+                    <!-- <label for="ward">Hero ward</label> -->
+                    <select class="form-control" id="ward" [(ngModel)]="heroObj.ward" name="ward" #ward="ngModel" required>
+                        <option value="">Select Ward</option>
+                      <option *ngFor="let pow of wards" [value]="pow">{{pow}}</option>
+                    </select>
+                    <div *ngIf="ward.invalid && (ward.dirty || ward.touched)" class="alert alert-danger">
+                      <div *ngIf="ward.errors.required">
+                        ward is required
+                      </div>
+                    </div>
+                </div>
+            </div><!-- col-md-4 -->
+
+            <div class="col-md-2 col-lg-2 col-xl-2">
+                <div class="form-group">
+                    <!-- <label for="Wearables">Hero ward</label> -->
+                    <select class="form-control" id="wearable" [(ngModel)]="heroObj.wearable" name="wearable" #wearable="ngModel" required>
+                        <option value="">Select Wearable</option>
+                      <option *ngFor="let pow of wearables" [value]="pow">{{pow}}</option>
+                    </select>
+                    <div *ngIf="wearable.invalid && (wearable.dirty || wearable.touched)" class="alert alert-danger">
+                      <div *ngIf="wearable.errors.required">
+                        wearable is required
+                      </div>
+                    </div>
+                </div>
+            </div><!-- col-md-4 -->
+
+            <div class="col-md-2 col-lg-2 col-lg-2">
+                <div class="form-group">
+                    <!-- <label for="rooms">Hero ward</label> -->
+                    <select class="form-control" id="room" [(ngModel)]="heroObj.room" name="room" #room="ngModel" required>
+                        <option value="">Select Room</option>
+                      <option *ngFor="let room of rooms" [value]="room">{{room}}</option>
+                    </select>
+                    <div *ngIf="room.invalid && (room.dirty || room.touched)" class="alert alert-danger">
+                      <div *ngIf="room.errors.required">
+                        room is required
+                      </div>
+                    </div>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-4 col-lg-4 col-lg-4">
+                <!-- <input type="datetime-local" onfocus="(this.type='date')" placeholder="datehe" class="form-control" id="date" [(ngModel)]="heroObj.date" name="date" #date="ngModel" required> -->
+                <input type="text" placeholder="Admission Date"
+                    onfocus="(this.type='date')" class="form-control" id="date" [(ngModel)]="heroObj.date" name="date" #date="ngModel" required> 
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-lg-2">
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn-dsc">Cancel</button>
+            </div>
+            
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn-dsc">Discharge</button>
+                <button type="submit" class="btn btn-success">Next</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+

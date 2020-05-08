@@ -1,0 +1,64 @@
+h4{
+    color: #fff;
+    background-color: #886AB5;
+    font-size: 14px;
+    padding: 12px 10px;
+    /* margin-top: 50px; */
+}
+span{
+    margin-left: 3px;
+    color: red;
+    font-weight: 700;
+}
+label{
+    font-size: 15px;;
+}
+#ward, #room, #wearable{
+    font-size: 14px;
+    cursor: pointer;
+
+}
+#ward:hover, #room:hover, #wearable:hover{
+background: #848C94;
+color: #fff;
+font-size: 14px;
+}
+
+.btn-dsc{
+margin:0px
+}
+.btn.btn-success, .btn-dsc {
+    background-color: #7453A6;
+    color: #fff;
+    padding: 5px 8px;
+    border-color: #886ab5;
+    font-size: 15px;
+    margin-left: 40px;
+}
+.btn-dsc{
+    margin:0px;
+    border-radius:5px;
+    }
+.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #7453A6;
+    border-color: #7453A6;;
+}
+.text-right btn{
+    background-color: #886AB5;
+    
+}
+.btn.btn-success{
+margin-top:-5px;
+margin-left:18px;
+}
+/* #room:hover{
+    background: #848C94;
+    color: #fff;
+    font-size: 14px;
+} 
+#wearable{
+    background: #848C94;
+color: #fff;
+font-size: 14px;
+} */
